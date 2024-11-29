@@ -16,10 +16,8 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if(Input.GetMouseButtonDown(0)) {
-            Debug.Log("Mouse");
             RaycastHit hit;
             if(Physics.Raycast(Camera.allCameras[0].ScreenPointToRay(Input.mousePosition), out hit)) {
-                Debug.Log(hit.point);
                 goTo(hit.point);
             }
         }
