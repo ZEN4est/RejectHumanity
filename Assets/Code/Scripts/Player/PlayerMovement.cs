@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -11,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded;
     private bool isJumping;
+    [SerializeField] GameObject body;
+    private float rotationX = 0;
+    private float rotationY = 0;
 
     void Start()
     {
@@ -28,7 +32,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void RotatePlayer()
     {
-        transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * 2f);
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+        rotationY += mouseX;
+        rotationX -= mouseY;
+        
+        rotationX = Mathf.Clamp(rotationX, -90, 90);
+        transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
+        body.transform.rotation = Quaternion.Euler(0, rotationY, 0);
     }
 
     private void MovePlayer()
@@ -38,7 +49,8 @@ public class PlayerMovement : MonoBehaviour
 
         newVelocity.x = Input.GetAxis("Horizontal") * speed;
         newVelocity.z = Input.GetAxis("Vertical") * speed;
-        rb.linearVelocity = transform.TransformDirection(newVelocity);
+        Vector3 dir =  transform.TransformDirection(newVelocity);
+        rb.linearVelocity = new Vector3(dir.x, 0, dir.z);
     }
 
     private void HandleJump()
