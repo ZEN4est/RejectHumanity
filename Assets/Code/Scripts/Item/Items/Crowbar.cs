@@ -1,34 +1,48 @@
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(Animator))]
-public class Crowbar : MonoBehaviour, IItem
+public class Crowbar : MonoBehaviour
 {
     [SerializeField] int meleDamage = 10;
     [SerializeField] float radius = 0.5f;
     [SerializeField] GameObject _model;
+    [SerializeField] private Animator _animator;
 
     public ItemType ItemType => ItemType.Crowbar;
-    private Animator _animator;
+    [Inject] private ItemService _itemService;
 
     private void Start()
     {
-        _animator = GetComponent<Animator>();
+        _itemService.Active += OnActiveItem;
+        _itemService.Use += OnUseItem;
     }
 
-    public void Use()
+    private void OnActiveItem(KeyCode code, ItemSettings settings)
     {
-        _animator.Play("Hit");
-        Attack();
+        if (settings != null && settings.type == ItemType)
+        {
+            _model.SetActive(true);
+            _animator.Play("Show");
+        }
+        else
+        {
+            _animator.Play("Hide");
+        }
     }
 
-    public void Disable()
+    private void OnUseItem(KeyCode code, ItemSettings settings)
+    {
+        if (settings != null && ItemType == settings.type)
+        {
+            _animator.Play("Hit");
+            Attack();
+        }
+    }
+
+    public void Hide()
     {
         _model.SetActive(false);
-    }
-
-    public void Enable()
-    {
-        _model.SetActive(true);
     }
 
     private void Attack()
@@ -41,5 +55,11 @@ public class Crowbar : MonoBehaviour, IItem
                 h.collider.GetComponent<Enemy>()?.dealDamage(meleDamage);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        _itemService.Active -= OnActiveItem;
+        _itemService.Use -= OnUseItem;
     }
 }
