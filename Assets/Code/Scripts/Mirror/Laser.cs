@@ -39,6 +39,10 @@ public class Laser : MonoBehaviour
             Physics.Raycast(ray, out hit);
         }
         points.Add(hit.collider is null ? points.Last() + ray.direction * 10 : hit.point);
+        LaserTrigger lt = hit.collider?.GetComponent<LaserTrigger>();
+        if(lt is not null) {
+            lt.Trigger();
+        }
         
         lr.positionCount = points.Count;
         lr.SetPositions(points.ToArray());
