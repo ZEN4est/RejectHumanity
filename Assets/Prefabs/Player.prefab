@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 3463875486822018743}
   - component: {fileID: 8785198206478586789}
   - component: {fileID: 2544735678458995313}
+  - component: {fileID: 771418278218859462}
   - component: {fileID: 3588265960840491496}
   m_Layer: 0
   m_Name: Player
@@ -427,6 +428,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &771418278218859462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6879863484760931229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad572e104599394a93d551487920a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hands: {fileID: 6436339623765729868}
+  pickupDistance: 10
 --- !u!114 &3588265960840491496
 MonoBehaviour:
   m_ObjectHideFlags: 0

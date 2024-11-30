@@ -44,7 +44,9 @@ public class PickUpController : MonoBehaviour
                     attachedObject.GetComponent<Rigidbody>().isKinematic = true;
 
                 if (attachedObject.GetComponent<Collider>())
-                    attachedObject.GetComponent<Collider>().enabled = false;
+                    attachedObject.GetComponent<Collider>().isTrigger = true;
+                    Material m = attachedObject.GetComponent<MeshRenderer>().materials[0];
+                    m.color = new Color(m.color.r, m.color.g, m.color.b, 0.7f);
             }
         }
     }
@@ -57,7 +59,9 @@ public class PickUpController : MonoBehaviour
             attachedObject.GetComponent<Rigidbody>().isKinematic = false;
 
         if (attachedObject.GetComponent<Collider>())
-            attachedObject.GetComponent<Collider>().enabled = true;
+            attachedObject.GetComponent<Collider>().isTrigger = false;
+            Material m = attachedObject.GetComponent<MeshRenderer>().materials[0];
+            m.color = new Color(m.color.r, m.color.g, m.color.b, 1f);
 
         attachedObject = null;
     }
