@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1e6cd7bf8379d1f418846ac76e3f57e4
+timeCreated: 1462560571
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/point_light.unity
+  uploadId: 120202

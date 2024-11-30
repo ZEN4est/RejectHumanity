@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f2531e3be75b8c542b6d21087d7932f4
+timeCreated: 1462483905
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/Materials/valves_worn.mat
+  uploadId: 120202

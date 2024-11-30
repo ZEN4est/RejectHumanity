@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7542074c4ec9959478c846484eba37e6
+timeCreated: 1463414561
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/Materials/valve_rotate3.anim
+  uploadId: 120202

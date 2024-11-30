@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b30a5f1ee6f8d8a429a24d5d6f45471f
+timeCreated: 1463677435
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/fog.unity
+  uploadId: 120202

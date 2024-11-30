@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 69a2cf304f06cc848b02a40eb182398b
+timeCreated: 1464053628
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/Materials/valves_albedo.mat
+  uploadId: 120202

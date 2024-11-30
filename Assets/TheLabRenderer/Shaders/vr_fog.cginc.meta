@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6901dee36c43c5049bd425623dda5260
+timeCreated: 1442663113
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Shaders/vr_fog.cginc
+  uploadId: 120202

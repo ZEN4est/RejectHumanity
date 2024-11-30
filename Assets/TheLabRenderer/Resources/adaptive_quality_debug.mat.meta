@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d2b0bec79df27c146baf0398f391ace8
+timeCreated: 1456838046
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Resources/adaptive_quality_debug.mat
+  uploadId: 120202

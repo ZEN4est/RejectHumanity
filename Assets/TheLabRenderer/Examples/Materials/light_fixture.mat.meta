@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8c6d60b26d5e29141807477a4af3c5ea
+timeCreated: 1462484994
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/Materials/light_fixture.mat
+  uploadId: 120202

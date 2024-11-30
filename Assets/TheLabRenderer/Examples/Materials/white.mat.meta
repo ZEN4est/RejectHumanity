@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: afaf145ed5319254b96a04ab7c94f856
+timeCreated: 1462571015
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/Materials/white.mat
+  uploadId: 120202

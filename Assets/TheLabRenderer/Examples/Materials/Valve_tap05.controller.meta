@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 03e26ca747a537d46a9119b8f90bf036
+timeCreated: 1462486451
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/Materials/Valve_tap05.controller
+  uploadId: 120202

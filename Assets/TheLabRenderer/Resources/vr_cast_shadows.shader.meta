@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e0d5ea6cc9c168546ab14e075757975f
+timeCreated: 1442663114
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Resources/vr_cast_shadows.shader
+  uploadId: 120202

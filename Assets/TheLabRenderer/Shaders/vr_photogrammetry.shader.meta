@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 17345b15837c74d489b13639baadc2cf
+timeCreated: 1455744195
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Shaders/vr_photogrammetry.shader
+  uploadId: 120202

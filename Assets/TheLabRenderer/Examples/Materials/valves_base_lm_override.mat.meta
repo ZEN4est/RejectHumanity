@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b05bba9c5b8a2ab42a7de2e8061de6d4
+timeCreated: 1463681923
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/Materials/valves_base_lm_override.mat
+  uploadId: 120202

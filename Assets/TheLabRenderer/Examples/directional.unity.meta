@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f8f40574aab59614cab5e253d9783049
+timeCreated: 1462490169
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/directional.unity
+  uploadId: 120202

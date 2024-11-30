@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e3a2741b61167a04681b87647716324b
+timeCreated: 1462485737
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/Materials/light_bulb.mat
+  uploadId: 120202

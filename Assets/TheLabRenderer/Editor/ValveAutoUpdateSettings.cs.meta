@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 64b1581dbaa4a1341a3a5a82f6f2b8fd
+timeCreated: 1462490877
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Editor/ValveAutoUpdateSettings.cs
+  uploadId: 120202

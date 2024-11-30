@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c1cfe8a95c63bc440a821bc05a3322a2
+timeCreated: 1464696736
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Documentation/TheLabRenderer.pdf
+  uploadId: 120202

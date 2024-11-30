@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c7fe369b4748c534695830d843aab047
+timeCreated: 1463678423
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/Materials/emissive_floor.mat
+  uploadId: 120202

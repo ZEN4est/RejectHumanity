@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 54e88da308c76ec45accf54e939d818e
+timeCreated: 1442663113
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Shaders/vr_utils.cginc
+  uploadId: 120202

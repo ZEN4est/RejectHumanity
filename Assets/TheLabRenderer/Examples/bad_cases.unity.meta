@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: aaf8880aadbbbad4981099ccb35f00d4
+timeCreated: 1462564876
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/bad_cases.unity
+  uploadId: 120202

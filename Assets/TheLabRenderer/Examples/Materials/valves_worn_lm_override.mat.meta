@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 78587ddfa216c7844a909c66c9bab46f
+timeCreated: 1463681873
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63141
+  packageName: The Lab Renderer
+  packageVersion: 1.0
+  assetPath: Assets/TheLabRenderer/Examples/Materials/valves_worn_lm_override.mat
+  uploadId: 120202
