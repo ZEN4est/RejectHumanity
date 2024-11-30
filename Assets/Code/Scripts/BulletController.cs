@@ -12,7 +12,7 @@ public class BulletController : MonoBehaviour
 
     private void Start()
     {
-        rb.AddForce(transform.forward * 30, ForceMode.Impulse);
+        rb.AddForce(transform.forward * 10, ForceMode.Impulse);
         transform.Rotate(Vector3.up, 90);
         _startPos = transform.position;
     }

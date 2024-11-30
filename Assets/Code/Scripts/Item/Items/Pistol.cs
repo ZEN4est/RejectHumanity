@@ -36,9 +36,12 @@ public class Pistol : MonoBehaviour
 
     private void OnUseItem(KeyCode code, ItemSettings settings)
     {
-        Instantiate(_bullet, _firePoint.position, transform.rotation);
-        _animator.Play("Shoot");
-        //Attack();
+        if (settings != null && ItemType == settings.type)
+        {
+            Instantiate(_bullet, _firePoint.position, transform.rotation);
+            _animator.Play("Shoot");
+            //Attack();
+        }
     }
 
     public void Hide()

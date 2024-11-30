@@ -33,8 +33,11 @@ public class Crowbar : MonoBehaviour
 
     private void OnUseItem(KeyCode code, ItemSettings settings)
     {
-        _animator.Play("Hit");
-        Attack();
+        if (settings != null && ItemType == settings.type)
+        {
+            _animator.Play("Hit");
+            Attack();
+        }
     }
 
     public void Hide()
