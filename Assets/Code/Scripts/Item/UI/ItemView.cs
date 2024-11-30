@@ -4,64 +4,43 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Zenject;
 
 public class ItemView : MonoBehaviour
 {
-    public static event Action<ItemType> Click;
     public KeyCode key;
-
-
-    private int index = 0;
-
-    public ItemSettings itemSettings;
     [SerializeField] private Image _image;
     [SerializeField] private Image _background;
-    [SerializeField] private Button _button;
 
-    //private ItemService itemService;
+    private ItemSettings itemSettings;
+
+    [Inject] private ItemService itemService;
 
     private void Start()
     {
-        //index = transform.parent.GetComponentsInChildren<ItemView>().ToList().IndexOf(this);
-
         if (itemSettings != null)
             SetImage(itemSettings.sprite);
 
-        _button.onClick.AddListener(OnClick);
-
-        //itemService.Add += OnAddItem;
+        itemService.Active += OnActiveItem;
+        itemService.Add += OnAddItem;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(key))
         {
-            OnClick();
+            itemService.SetActiveItem(key);
         }
     }
 
-    // private void OnAddItem(ItemSettings settings)
-    // {
-    //     if (itemService.items.IndexOf(settings) == index)
-    //     {
-    //         itemSettings = settings;
-    //         Enable();
-    //     }
-    //     else
-    //     {
-    //         Disable();
-    //     }
-    // }
-
-    public void Disable()
+    private void OnActiveItem(KeyCode code, ItemSettings settings)
     {
-        _background.color = Color.white;
+        _background.color = code == key ? Color.blue : Color.white;
     }
 
-    public void Enable()
+    private void OnAddItem(KeyCode code, ItemSettings settings)
     {
-        _background.color = Color.blue;
-        OnClick();
+        if (key == code) SetSettings(settings);
     }
 
     public void SetSettings(ItemSettings settings)
@@ -78,13 +57,9 @@ public class ItemView : MonoBehaviour
         _image.sprite = sprite;
     }
 
-    private void OnClick()
-    {
-        Click?.Invoke(itemSettings == null ? ItemType.None : itemSettings.type);
-    }
-
     private void OnDestroy()
     {
-        _button.onClick.RemoveAllListeners();
+        itemService.Active -= OnActiveItem;
+        itemService.Add -= OnAddItem;
     }
 }

@@ -1,44 +1,49 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using Zenject;
 
-public class Pistol : MonoBehaviour, IItem
+public class Pistol : MonoBehaviour
 {
     public ItemType ItemType => ItemType.Pistol;
 
     [SerializeField] GameObject _model;
+
     [SerializeField] GameObject _bullet;
     [SerializeField] Transform _firePoint;
     [SerializeField] int shootDamage = 10;
+    [SerializeField] private Animator _animator;
 
-
-    private Animator _animator;
+    [Inject] private ItemService _itemService;
 
     private void Start()
     {
-        _animator = GetComponent<Animator>();
+        _itemService.Active += OnActiveItem;
+        _itemService.Use += OnUseItem;
     }
 
+    private void OnActiveItem(KeyCode code, ItemSettings settings)
+    {
+        if (settings != null && settings.type == ItemType)
+        {
+            _model.SetActive(true);
+            _animator.Play("Show");
+        }
+        else
+        {
+            _animator.Play("Hide");
+        }
+    }
 
-    public void Use()
+    private void OnUseItem(KeyCode code, ItemSettings settings)
     {
         Instantiate(_bullet, _firePoint.position, transform.rotation);
-        //Attack();
         _animator.Play("Shoot");
+        //Attack();
     }
 
     public void Hide()
     {
-        _animator.Play("Hide");
-    }
-
-    public void Disable()
-    {
         _model.SetActive(false);
-    }
-
-    public void Show()
-    {
-        _model.SetActive(true);
-        _animator.Play("Show");
     }
 
     private void Attack()
@@ -54,5 +59,9 @@ public class Pistol : MonoBehaviour, IItem
         }
     }
 
-
+    private void OnDestroy()
+    {
+        _itemService.Active -= OnActiveItem;
+        _itemService.Use -= OnUseItem;
+    }
 }
