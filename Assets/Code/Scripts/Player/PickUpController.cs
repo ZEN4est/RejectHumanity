@@ -30,7 +30,7 @@ public class PickUpController : MonoBehaviour
 
     private void TryPickUpObject()
     {
-        if (Physics.Raycast(hands.position, hands.forward, out RaycastHit hit, pickupDistance))
+        if (Physics.Raycast(transform.position, hands.forward, out RaycastHit hit, pickupDistance))
         {
             if (hit.transform.CompareTag("Pickable"))
             {
