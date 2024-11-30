@@ -11,6 +11,8 @@ public class ItemManager : MonoBehaviour
 
     private Dictionary<ItemType, IItem> _items;
 
+    //private ItemService itemService;
+
     private void Start()
     {
         _items = GetComponentsInChildren<IItem>().ToDictionary(i => i.ItemType);
@@ -43,14 +45,14 @@ public class ItemManager : MonoBehaviour
     {
         if (type == ItemType.None)
         {
-            _items.ToList().ForEach(kvp => kvp.Value.Disable());
+            _items.ToList().ForEach(kvp => kvp.Value.Hide());
             return;
         }
 
         _itemInHand = _items[type];
 
-        _items.ToList().ForEach(kvp => kvp.Value.Disable());
-        _itemInHand.Enable();
+        _items.ToList().ForEach(kvp => kvp.Value.Hide());
+        _itemInHand.Show();
     }
 
     private void OnClick()

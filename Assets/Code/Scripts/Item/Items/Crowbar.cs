@@ -21,14 +21,20 @@ public class Crowbar : MonoBehaviour, IItem
         Attack();
     }
 
+    public void Hide()
+    {
+        _animator.Play("Hide");
+    }
+
     public void Disable()
     {
         _model.SetActive(false);
     }
 
-    public void Enable()
+    public void Show()
     {
         _model.SetActive(true);
+        _animator.Play("Show");
     }
 
     private void Attack()

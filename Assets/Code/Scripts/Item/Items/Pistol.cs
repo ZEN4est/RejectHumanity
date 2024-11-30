@@ -5,19 +5,29 @@ public class Pistol : MonoBehaviour, IItem
     public ItemType ItemType => ItemType.Pistol;
 
     [SerializeField] GameObject _model;
+    [SerializeField] GameObject _bullet;
+    [SerializeField] Transform _firePoint;
     [SerializeField] int shootDamage = 10;
 
-    private Animator animator;
+
+    private Animator _animator;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
+
 
     public void Use()
     {
-        Attack();
-        animator.Play("Shoot");
+        Instantiate(_bullet, _firePoint.position, transform.rotation);
+        //Attack();
+        _animator.Play("Shoot");
+    }
+
+    public void Hide()
+    {
+        _animator.Play("Hide");
     }
 
     public void Disable()
@@ -25,9 +35,10 @@ public class Pistol : MonoBehaviour, IItem
         _model.SetActive(false);
     }
 
-    public void Enable()
+    public void Show()
     {
         _model.SetActive(true);
+        _animator.Play("Show");
     }
 
     private void Attack()
