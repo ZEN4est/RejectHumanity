@@ -12,6 +12,9 @@ public class MirrorDriver : MonoBehaviour
     {
         offset = mirror.transform.eulerAngles.y;
         Debug.Log(offset);
+        if(turnNumbers <= 0) {
+            Debug.LogError("turnNumbers cannot be below or equal zero!");
+        }
     }
 
     // Update is called once per frame

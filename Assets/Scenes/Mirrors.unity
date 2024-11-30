@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &354525450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1084901347026010431, guid: 158cd1962424dc2879ecb18fed152427, type: 3}
+  m_PrefabInstance: {fileID: 6370960237392288564}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e26f6a3ccb8f4686687da13782870431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &514113472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -176,18 +187,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c71d2d0466725643ca67b712394c4342, type: 3}
---- !u!114 &779751061 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1084901347026010431, guid: 158cd1962424dc2879ecb18fed152427, type: 3}
-  m_PrefabInstance: {fileID: 6370960237392288564}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e26f6a3ccb8f4686687da13782870431, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &844304984
+--- !u!1001 &978346200
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -198,11 +198,7 @@ PrefabInstance:
     - target: {fileID: 6837356329246164345, guid: b5c3bc89016be69bc8d526558bd5df27, type: 3}
       propertyPath: mirror
       value: 
-      objectReference: {fileID: 779751061}
-    - target: {fileID: 6837356329246164345, guid: b5c3bc89016be69bc8d526558bd5df27, type: 3}
-      propertyPath: turnNumbers
-      value: 3
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 354525450}
     - target: {fileID: 8152998704330189686, guid: b5c3bc89016be69bc8d526558bd5df27, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -245,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8720783202887193340, guid: b5c3bc89016be69bc8d526558bd5df27, type: 3}
       propertyPath: m_Name
-      value: MirrorDriver
+      value: MirrorDriver (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -820,4 +816,4 @@ SceneRoots:
   - {fileID: 6370960237392288564}
   - {fileID: 1877802126}
   - {fileID: 4176650344653185362}
-  - {fileID: 844304984}
+  - {fileID: 978346200}
