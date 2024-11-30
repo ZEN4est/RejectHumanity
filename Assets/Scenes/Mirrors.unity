@@ -320,8 +320,44 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 487743624130256461, guid: 2f40ebb110f28d5e2aa476e9fe2f69a9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b31b832513da2cc1e8e2698d24cc6288, type: 2}
+    - target: {fileID: 487743624130256461, guid: 2f40ebb110f28d5e2aa476e9fe2f69a9, type: 3}
+      propertyPath: m_Positions.Array.data[1].z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 487743624130256461, guid: 2f40ebb110f28d5e2aa476e9fe2f69a9, type: 3}
       propertyPath: m_Parameters.numCornerVertices
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 487743624130256461, guid: 2f40ebb110f28d5e2aa476e9fe2f69a9, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487743624130256461, guid: 2f40ebb110f28d5e2aa476e9fe2f69a9, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487743624130256461, guid: 2f40ebb110f28d5e2aa476e9fe2f69a9, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 487743624130256461, guid: 2f40ebb110f28d5e2aa476e9fe2f69a9, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487743624130256461, guid: 2f40ebb110f28d5e2aa476e9fe2f69a9, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487743624130256461, guid: 2f40ebb110f28d5e2aa476e9fe2f69a9, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 487743624130256461, guid: 2f40ebb110f28d5e2aa476e9fe2f69a9, type: 3}
+      propertyPath: m_Parameters.generateLightingData
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 704712186982995021, guid: 2f40ebb110f28d5e2aa476e9fe2f69a9, type: 3}
       propertyPath: m_Name
@@ -501,6 +537,7 @@ GameObject:
   - component: {fileID: 980394353}
   - component: {fileID: 980394352}
   - component: {fileID: 980394351}
+  - component: {fileID: 980394354}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -582,6 +619,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &980394354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980394350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &1475376636
 GameObject:
   m_ObjectHideFlags: 0
