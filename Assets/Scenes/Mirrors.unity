@@ -319,6 +319,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 487743624130256461, guid: 2f40ebb110f28d5e2aa476e9fe2f69a9, type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 704712186982995021, guid: 2f40ebb110f28d5e2aa476e9fe2f69a9, type: 3}
       propertyPath: m_Name
       value: Laser
@@ -436,6 +440,10 @@ PrefabInstance:
     - target: {fileID: 7170502798487410886, guid: 158cd1962424dc2879ecb18fed152427, type: 3}
       propertyPath: m_Name
       value: Mirror
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170502798487410886, guid: 158cd1962424dc2879ecb18fed152427, type: 3}
+      propertyPath: m_TagString
+      value: Pickable
       objectReference: {fileID: 0}
     - target: {fileID: 7871773561692450993, guid: 158cd1962424dc2879ecb18fed152427, type: 3}
       propertyPath: m_LocalPosition.x
