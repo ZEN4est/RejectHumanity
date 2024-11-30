@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18995548a2a6afd42933624ba9383d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSettings: {fileID: 11400000, guid: f1eeef2694c93374a915f52912297bc6, type: 2}
+  itemSettings: {fileID: 0}
   _image: {fileID: 1790990385}
   _background: {fileID: 1363958422}
   _button: {fileID: 474242744}
