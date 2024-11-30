@@ -2,5 +2,7 @@ public enum ItemType
 {
     None,
     Crowbar,
-    Pistol
+    Pistol,
+    key2,
+    key
 }
