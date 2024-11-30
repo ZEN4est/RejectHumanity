@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y");
         rotationY += mouseX;
         rotationX -= mouseY;
-        
+
         rotationX = Mathf.Clamp(rotationX, -90, 90);
         transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
         body.transform.rotation = Quaternion.Euler(0, rotationY, 0);
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
         newVelocity.x = Input.GetAxis("Horizontal") * speed;
         newVelocity.z = Input.GetAxis("Vertical") * speed;
-        Vector3 dir =  transform.TransformDirection(newVelocity);
+        Vector3 dir = transform.TransformDirection(newVelocity);
         rb.linearVelocity = new Vector3(dir.x, 0, dir.z);
     }
 
