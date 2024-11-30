@@ -1,22 +1,26 @@
 using System.Linq;
 using Unity.Collections;
 using UnityEngine;
+using Zenject;
 
-public class Key : MonoBehaviour, IItem
+public class Key : MonoBehaviour
 {
     public ItemType ItemType => ItemType.key2;
 
-    public void Disable()
+    [Inject] private ItemService _itemService;
+
+
+    private void Start()
     {
-        
+        _itemService.Active += OnActiveItem;
+        _itemService.Use += OnUseItem;
     }
 
-    public void Enable()
+    private void OnActiveItem(KeyCode code, ItemSettings settings)
     {
-        
     }
 
-    public void Use()
+    private void OnUseItem(KeyCode code, ItemSettings settings)
     {
         // RaycastHit[] hits = Physics.SphereCastAll(transform.position, 2f, Vector3.up);
         // RaycastHit? doorHit = hits.ToList().FirstOrDefault(x => x.collider.GetComponent<Door>() != null);
@@ -30,22 +34,15 @@ public class Key : MonoBehaviour, IItem
         // }
 
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, 2f, Vector3.up);
-        if(hits.ToList().Select(x => x.collider.GetComponent<Door>()).FirstOrDefault() is Door door && door.key == ItemType) {
+        if (hits.ToList().Select(x => x.collider.GetComponent<Door>()).FirstOrDefault() is Door door && door.key == ItemType)
+        {
             door.Open();
         }
-        
-
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnDestroy()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _itemService.Active -= OnActiveItem;
+        _itemService.Use -= OnUseItem;
     }
 }

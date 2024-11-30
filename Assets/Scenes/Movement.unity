@@ -487,7 +487,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 330585546}
-  m_Father: {fileID: 975555252}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &773248418
 MonoBehaviour:
@@ -501,8 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f3419b8278781449642a96a449c872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minZRotation: -15
-  maxZRotation: 15
+  _mouseSensitivity: 100
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,3 +863,4 @@ SceneRoots:
   - {fileID: 1034559653}
   - {fileID: 4826718993918947851}
   - {fileID: 719543177}
+  - {fileID: 773248417}

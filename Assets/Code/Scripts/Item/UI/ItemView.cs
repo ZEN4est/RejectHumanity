@@ -1,33 +1,46 @@
 using System;
+using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+using Zenject;
 
 public class ItemView : MonoBehaviour
 {
-    public static event Action<ItemType> Click;
-
-    public ItemSettings itemSettings;
+    public KeyCode key;
     [SerializeField] private Image _image;
     [SerializeField] private Image _background;
-    [SerializeField] private Button _button;
+
+    private ItemSettings itemSettings;
+
+    [Inject] private ItemService itemService;
 
     private void Start()
     {
         if (itemSettings != null)
             SetImage(itemSettings.sprite);
 
-        _button.onClick.AddListener(OnClick);
+        itemService.Active += OnActiveItem;
+        itemService.Add += OnAddItem;
     }
 
-    public void Disable()
+    private void Update()
     {
-        _background.color = Color.white;
+        if (Input.GetKeyDown(key))
+        {
+            itemService.SetActiveItem(key);
+        }
     }
 
-    public void Enable()
+    private void OnActiveItem(KeyCode code, ItemSettings settings)
     {
-        _background.color = Color.blue;
-        OnClick();
+        _background.color = code == key ? Color.blue : Color.white;
+    }
+
+    private void OnAddItem(KeyCode code, ItemSettings settings)
+    {
+        if (key == code) SetSettings(settings);
     }
 
     public void SetSettings(ItemSettings settings)
@@ -44,13 +57,9 @@ public class ItemView : MonoBehaviour
         _image.sprite = sprite;
     }
 
-    private void OnClick()
-    {
-        Click?.Invoke(itemSettings == null ? ItemType.None : itemSettings.type);
-    }
-
     private void OnDestroy()
     {
-        _button.onClick.RemoveAllListeners();
+        itemService.Active -= OnActiveItem;
+        itemService.Add -= OnAddItem;
     }
 }

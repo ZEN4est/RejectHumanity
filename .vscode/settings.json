@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "RejectHumanity.sln"
+    "dotnet.defaultSolution": "Reject Humanity.sln"
 }
