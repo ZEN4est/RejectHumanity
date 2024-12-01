@@ -3,6 +3,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.Universal.Internal;
+using Zenject.SpaceFighter;
 
 public class Enemy : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour
 [Space(10)]
 [SerializeField] private BulletController _bullet;
 [SerializeField] private float forwardOffset = 0.2f;
+[SerializeField] private float upOffset = 3f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -61,9 +63,8 @@ public class Enemy : MonoBehaviour
 
     public void dealDamage(int damage) {
         health -= damage;
-        StartCoroutine(tmpDamage());
         if(health <= 0) {
-            Destroy(gameObject);
+            StartCoroutine(die());
         }
     }
 
@@ -76,33 +77,33 @@ public class Enemy : MonoBehaviour
         StartCoroutine(changeDirection());
     }
 
-    private IEnumerator tmpDamage() {
-        transform.localScale = new Vector3(1, 1.2f, 1);
-        yield return new WaitForSeconds(0.1f);
-        transform.localScale = new Vector3(1, 1, 1);
-
-    }
-
     private void tryShoot() {
-        if(shootCooldown <= 0) {
-            Ray ray = new Ray(transform.position, FindAnyObjectByType<PlayerMovement>().transform.position - transform.position);
-            RaycastHit hit;
+        if(shootCooldown <= 0 && followCooldown <= 0) {
             PlayerMovement pm = FindAnyObjectByType<PlayerMovement>();
-            Debug.DrawRay(transform.position, pm.transform.position - transform.position);
+            Ray ray = new Ray(transform.position+new Vector3(0,upOffset,0), pm.transform.position - transform.position - new Vector3(0, upOffset, 0));
+            RaycastHit hit;
+            Debug.DrawRay(transform.position+new Vector3(0, upOffset, 0), pm.transform.position - transform.position - new Vector3(0, upOffset, 0));
             if(Physics.Raycast(ray, out hit)) {
                 if(LayerMask.LayerToName(hit.collider.gameObject.layer) == "Player") {
-                    StartCoroutine(shoot(transform.rotation, ray.direction));
+                    StartCoroutine(shoot(ray.direction));
                 }
             }
         }
     }
 
-    private IEnumerator shoot(Quaternion qat, Vector3 dir) {
+    private IEnumerator shoot(Vector3 dir) {
         shootCooldown = Random.Range(shootMinCoolDown, shootMaxCoolDown);
         animator.SetTrigger("Attack");
         followCooldown = 2;
         goTo(transform.position);
         yield return new WaitForSeconds(2f);
-        Instantiate(_bullet, transform.position+new Vector3(0,1,0)+dir*forwardOffset, qat);
+        BulletController.Create(_bullet, transform.position+new Vector3(0, upOffset, 0), Quaternion.LookRotation(dir), gameObject, 10);
+    }
+
+    private IEnumerator die() {
+        animator.SetTrigger("Die");
+        followCooldown = 5;
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 }

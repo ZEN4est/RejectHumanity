@@ -35,7 +35,6 @@ public class PickUpController : MonoBehaviour
     private void TryPickUpObject()
     {
         RaycastHit[] hits = Physics.BoxCastAll(transform.position, new Vector3(2, 2, 2), transform.forward);
-        Debug.Log(string.Join(", ", hits.Select(x => x.collider.name)));
         GameObject obj = hits.Select(x => x.collider.gameObject).FirstOrDefault(x => x.CompareTag("Pickable"));
         if (obj is not null)
         {
