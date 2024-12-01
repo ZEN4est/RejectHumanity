@@ -38,8 +38,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void RotatePlayer()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
+        float mouseX = Input.GetAxis("Mouse X")*2;
+        float mouseY = Input.GetAxis("Mouse Y")*2;
         rotationY += mouseX;
         rotationX -= mouseY;
 
