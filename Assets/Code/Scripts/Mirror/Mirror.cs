@@ -12,6 +12,6 @@ public class Mirror : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
-        transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+        transform.position = new Vector3(transform.position.x, 1.2f, transform.position.z);
     }
 }

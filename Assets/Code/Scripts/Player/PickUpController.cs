@@ -43,6 +43,7 @@ public class PickUpController : MonoBehaviour
             attachedObject.position = hands.position;
 
             attachedDistance = Vector3.Distance(attachedObject.position, hands.position);
+            attachedObject.position = new Vector3(attachedObject.position.x, 1.2f, attachedObject.position.z);
 
             if (attachedObject.GetComponent<Rigidbody>())
                 attachedObject.GetComponent<Rigidbody>().isKinematic = true;
