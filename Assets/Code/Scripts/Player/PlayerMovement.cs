@@ -77,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void dealDamage(int damage) {
+        Debug.Log("You got hit!");
         health -= damage;
         if(health <= 0) {
             Debug.Log("You lost!");

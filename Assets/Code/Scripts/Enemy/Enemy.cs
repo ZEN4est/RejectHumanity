@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering.Universal.Internal;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Enemy : MonoBehaviour
     private PlayerMovement pm;
     private float followCooldown = 0;
     private float shootCooldown = 0;
+    private Animator animator;
 
     [Space(10)]
 [SerializeField] private float followMinTime = 10;
@@ -22,14 +24,19 @@ public class Enemy : MonoBehaviour
 [SerializeField] private float shootMaxCoolDown = 6f;
 [Space(10)]
 [SerializeField] private BulletController _bullet;
+[SerializeField] private float forwardOffset = 0.2f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         if(navMeshAgent is null) {
             Debug.LogError("Enemy should have navMeshAgent");
+        }
+        if(animator is null) {
+            Debug.LogError("Enemy should have animator");
         }
         pm = FindAnyObjectByType<PlayerMovement>();
         StartCoroutine(changeDirection());
@@ -91,9 +98,11 @@ public class Enemy : MonoBehaviour
     }
 
     private IEnumerator shoot(Quaternion qat, Vector3 dir) {
-        float prepAnimTime = 1;
-        shootCooldown = Random.Range(3, 6);
-        yield return new WaitForSeconds(prepAnimTime);
-        Instantiate(_bullet, transform.position + dir*3, qat);
+        shootCooldown = 8;
+        animator.SetTrigger("Attack");
+        followCooldown = 2;
+        goTo(transform.position);
+        yield return new WaitForSeconds(2f);
+        Instantiate(_bullet, transform.position+new Vector3(0,1,0)+dir*forwardOffset, qat);
     }
 }

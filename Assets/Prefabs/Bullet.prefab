@@ -50,6 +50,7 @@ MonoBehaviour:
   _explosion: {fileID: 9060274938504793965, guid: 9450782c654c73d4e8f4fcf804db53c0, type: 3}
   _shootDamage: 10
   rb: {fileID: 3293381265341269594}
+  speed: 10
 --- !u!54 &3293381265341269594
 Rigidbody:
   m_ObjectHideFlags: 0

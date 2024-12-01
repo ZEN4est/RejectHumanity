@@ -25,28 +25,33 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.transform.CompareTag("Enemy"))
-        {
-            other.transform.GetComponent<Enemy>()?.dealDamage(_shootDamage);
-        }
-        if(other.transform.CompareTag("Player")) {
-            other.transform.GetComponent<PlayerMovement>()?.dealDamage(_shootDamage);
-        }
+    // private void OnCollisionEnter(Collision other)
+    // {
+    //     if (other.transform.CompareTag("Enemy"))
+    //     {
+    //         other.transform.GetComponent<Enemy>()?.dealDamage(_shootDamage);
+    //     }
+    //     if(other.transform.CompareTag("Player")) {
+    //         FindAnyObjectByType<PlayerMovement>()?.dealDamage(_shootDamage);
+    //     }
 
-        if (_isExplosion == false)
-        {
-            StartCoroutine(Explode());
-            _isExplosion = true;
-        }
-    }
+    //     if (_isExplosion == false)
+    //     {
+    //         StartCoroutine(Explode());
+    //         _isExplosion = true;
+    //     }
+    // }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Enemy"))
         {
             other.transform.GetComponent<Enemy>()?.dealDamage(_shootDamage);
+            GetComponent<Collider>().enabled = false;
+        }
+        if(other.transform.CompareTag("Player")) {
+            FindAnyObjectByType<PlayerMovement>()?.dealDamage(_shootDamage);
+            GetComponent<Collider>().enabled = false;
         }
 
         if (_isExplosion == false)
