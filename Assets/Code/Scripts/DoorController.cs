@@ -29,14 +29,11 @@ public class DoorController : MonoBehaviour
         {
             openDoor?.Invoke();
             _animator.Play("OpenDoor");
-<<<<<<< Updated upstream
-        }
-=======
             Collider col = GetComponent<Collider>();
             if(col is not null) {
                 col.enabled = false;
             }
->>>>>>> Stashed changes
+        }
     }
 
     public void StayOpen()
