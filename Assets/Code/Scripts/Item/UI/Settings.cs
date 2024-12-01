@@ -24,7 +24,7 @@ public class Settings : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            MeshRenderer mr = GetComponent<MeshRenderer>();
+            Canvas mr = GetComponent<Canvas>();
             if (mr is not null)
             {
                 mr.enabled = !mr.enabled;
