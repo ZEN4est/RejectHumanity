@@ -11,7 +11,7 @@ public class Pistol : MonoBehaviour
 
     [SerializeField] GameObject _model;
 
-    [SerializeField] GameObject _bullet;
+    [SerializeField] BulletController _bullet;
     [SerializeField] Transform _firePoint;
     [SerializeField] int shootDamage = 10;
     [SerializeField] private Animator _animator;
@@ -41,7 +41,8 @@ public class Pistol : MonoBehaviour
     {
         if (settings != null && ItemType == settings.type)
         {
-            Instantiate(_bullet, _firePoint.position, transform.rotation);
+            Instantiate(_bullet, transform.parent.position + transform.parent.forward, transform.rotation);
+            BulletController.Create(_bullet, transform.parent.position, transform.parent.rotation, transform.parent.gameObject, 20);
             _animator.Play("Shoot");
             shot?.Invoke();
             //Attack();

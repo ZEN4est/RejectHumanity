@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -18,16 +19,13 @@ public class ItemPickUpController : MonoBehaviour
 
     private void PickUp()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        RaycastHit[] hits = Physics.BoxCastAll(transform.position, new Vector3(2, 2, 2), transform.forward);
+        GameObject obj = hits.Select(x => x.collider.gameObject).FirstOrDefault(x => x.CompareTag("Item"));
+        if (obj is not null)
         {
-            if (hit.collider.CompareTag("Item"))
-            {
-                var settings = hit.collider.GetComponent<ItemSettingReference>()?.settings;
-                _itemService.AddItem(settings);
-                Destroy(hit.transform.gameObject);
-            }
+            var settings = obj.GetComponent<ItemSettingReference>()?.settings;
+            _itemService.AddItem(settings);
+            Destroy(obj);
         }
     }
 }
