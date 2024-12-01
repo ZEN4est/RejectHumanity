@@ -47,8 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef4d8df7f5ffd847a72a7e1d9b628fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shot:
+    m_PersistentCalls:
+      m_Calls: []
   _model: {fileID: 4307375919627298880}
-  _bullet: {fileID: 1193433264277061012, guid: 1641dd209924f3846a9f182399a4c3de, type: 3}
+  _bullet: {fileID: 8271607602251552346, guid: 1641dd209924f3846a9f182399a4c3de, type: 3}
   _firePoint: {fileID: 5061169930220117108}
   shootDamage: 10
   _animator: {fileID: 5723148886825154691}
