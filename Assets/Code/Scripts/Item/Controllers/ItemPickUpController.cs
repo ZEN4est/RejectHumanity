@@ -10,11 +10,9 @@ public class ItemPickUpController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
             PickUp();
-    }
 
-    private void OnClick()
-    {
-        _itemService.UseItem();
+        if (Input.GetMouseButtonDown(0))
+            _itemService.UseItem();
     }
 
     private void PickUp()
