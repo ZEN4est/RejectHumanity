@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -33,26 +34,26 @@ public class PickUpController : MonoBehaviour
 
     private void TryPickUpObject()
     {
-        if (Physics.Raycast(hands.position, hands.forward, out RaycastHit hit, pickupDistance))
+        RaycastHit[] hits = Physics.BoxCastAll(transform.position, new Vector3(2, 2, 2), transform.forward);
+        Debug.Log(string.Join(", ", hits.Select(x => x.collider.name)));
+        GameObject obj = hits.Select(x => x.collider.gameObject).FirstOrDefault(x => x.CompareTag("Pickable"));
+        if (obj is not null)
         {
-            if (hit.transform.CompareTag("Pickable"))
-            {
-                attachedObject = hit.transform;
-                attachedObject.SetParent(transform);
-                attachedObject.position = hands.position;
+            attachedObject = obj.transform;
+            attachedObject.SetParent(transform);
+            attachedObject.position = hands.position;
 
-                attachedDistance = Vector3.Distance(attachedObject.position, hands.position);
+            attachedDistance = Vector3.Distance(attachedObject.position, hands.position);
 
-                if (attachedObject.GetComponent<Rigidbody>())
-                    attachedObject.GetComponent<Rigidbody>().isKinematic = true;
+            if (attachedObject.GetComponent<Rigidbody>())
+                attachedObject.GetComponent<Rigidbody>().isKinematic = true;
 
-                if (attachedObject.GetComponent<Collider>())
-                    attachedObject.GetComponent<Collider>().isTrigger = true;
-                Material m = attachedObject.GetComponent<MeshRenderer>().materials[0];
-                m.color = new Color(m.color.r, m.color.g, m.color.b, 0.7f);
+            if (attachedObject.GetComponent<Collider>())
+                attachedObject.GetComponent<Collider>().isTrigger = true;
+            Material m = attachedObject.GetComponent<MeshRenderer>().materials[0];
+            m.color = new Color(m.color.r, m.color.g, m.color.b, 0.7f);
 
-                pickUp?.Invoke();
-            }
+            pickUp?.Invoke();
         }
     }
 
