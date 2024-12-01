@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
     }
 
     private IEnumerator shoot(Quaternion qat, Vector3 dir) {
-        shootCooldown = 8;
+        shootCooldown = Random.Range(shootMinCoolDown, shootMaxCoolDown);
         animator.SetTrigger("Attack");
         followCooldown = 2;
         goTo(transform.position);
