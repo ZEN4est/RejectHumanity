@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -5,7 +6,14 @@ public class DoorController : MonoBehaviour
 {
     private Animator _animator;
 
+    public Guid Id { get; private set; }
+
     [Inject] private DoorLockService _doorLockService;
+
+    private void Awake()
+    {
+        Id = Guid.NewGuid();
+    }
 
     private void Start()
     {
@@ -13,9 +21,10 @@ public class DoorController : MonoBehaviour
         _doorLockService.DoorUnlocked += OnDoorUnlocked;
     }
 
-    private void OnDoorUnlocked()
+    private void OnDoorUnlocked(Guid doorId)
     {
-        _animator.Play("OpenDoor");
+        if (Id == doorId)
+            _animator.Play("OpenDoor");
     }
 
     public void StayOpen()

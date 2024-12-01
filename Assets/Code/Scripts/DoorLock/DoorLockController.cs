@@ -5,7 +5,8 @@ public class DoorLockController : MonoBehaviour
 {
     private Outline _outline;
     private bool _isFacingDoor = false;
-    [SerializeField] private string _secret = "2021";
+    [SerializeField] private string _secret;
+    [SerializeField] private DoorController _doorController;
 
     [Inject] private DoorLockService _doorLockService;
 
@@ -22,7 +23,7 @@ public class DoorLockController : MonoBehaviour
     private void Update()
     {
         if (_isFacingDoor && Input.GetKeyDown(KeyCode.E))
-            _doorLockService.ShowDoorLock(_secret);
+            _doorLockService.ShowDoorLock(_doorController.Id, _secret);
     }
 
     private void OnTriggerEnter(Collider other)
