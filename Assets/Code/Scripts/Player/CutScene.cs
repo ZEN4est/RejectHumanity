@@ -41,10 +41,13 @@ public class CutScene : MonoBehaviour
         Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
         enemies.ToList().ForEach(x => Destroy(x.gameObject));
         Canvas c = Instantiate(canvas);
+        FindAnyObjectByType<EnemyWaveTrigger>()?.GetComponent<AudioSource>()?.Stop();
         yield return new WaitForSeconds(1.5f);
         Destroy(FindAnyObjectByType<PlayerMovement>().gameObject);
         cutscene.gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
         Destroy(c.gameObject);
+        yield return new WaitForSeconds(27);
+        Application.Quit();
     }
 }

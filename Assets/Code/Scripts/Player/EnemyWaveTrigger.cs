@@ -6,12 +6,11 @@ using UnityEngine;
 public class EnemyWaveTrigger : MonoBehaviour
 {
     private bool isPlaying = false;
-    public AudioClip AudioClip;
     AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        audioSource= FindAnyObjectByType<PlayerMovement>().GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,7 +21,7 @@ public class EnemyWaveTrigger : MonoBehaviour
 
     void OnTriggerEnter() {
         if (!isPlaying) { 
-        audioSource.clip = AudioClip;
+        FindAnyObjectByType<PlayerMovement>()?.GetComponent<AudioSource>()?.Stop();
         audioSource.Play();
         audioSource.volume = 0.5f;
         }
