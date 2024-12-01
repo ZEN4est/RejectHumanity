@@ -11,6 +11,7 @@ public class Mirror : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+        transform.position = new Vector3(transform.position.x, 1, transform.position.z);
     }
 }
