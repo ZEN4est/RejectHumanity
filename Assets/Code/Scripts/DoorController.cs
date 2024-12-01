@@ -1,9 +1,11 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 public class DoorController : MonoBehaviour
 {
+    public UnityEvent openDoor;
     private Animator _animator;
 
     public Guid Id { get; private set; }
@@ -24,7 +26,10 @@ public class DoorController : MonoBehaviour
     private void OnDoorUnlocked(Guid doorId)
     {
         if (Id == doorId)
+        {
+            openDoor?.Invoke();
             _animator.Play("OpenDoor");
+        }
     }
 
     public void StayOpen()

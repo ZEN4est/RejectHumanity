@@ -1,9 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 public class Pistol : MonoBehaviour
 {
+    public UnityEvent shot;
+
     public ItemType ItemType => ItemType.Pistol;
 
     [SerializeField] GameObject _model;
@@ -40,6 +43,7 @@ public class Pistol : MonoBehaviour
         {
             Instantiate(_bullet, _firePoint.position, transform.rotation);
             _animator.Play("Shoot");
+            shot?.Invoke();
             //Attack();
         }
     }

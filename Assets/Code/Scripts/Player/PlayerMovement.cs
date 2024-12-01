@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
+    public UnityEvent walk;
+
     [Header("Movement Configurations")]
     public float walkSpeed;
     public float runSpeed;
@@ -54,6 +57,9 @@ public class PlayerMovement : MonoBehaviour
         newVelocity.z = Input.GetAxis("Vertical") * speed;
         Vector3 dir = transform.TransformDirection(newVelocity);
         rb.linearVelocity = new Vector3(dir.x, 0, dir.z);
+
+        if (rb.linearVelocity != Vector3.zero)
+            walk?.Invoke();
     }
 
     private void HandleJump()
@@ -76,10 +82,12 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = false;
     }
 
-    public void dealDamage(int damage) {
+    public void dealDamage(int damage)
+    {
         Debug.Log("You got hit!");
         health -= damage;
-        if(health <= 0) {
+        if (health <= 0)
+        {
             Debug.Log("You lost!");
         }
     }

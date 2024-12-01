@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 [RequireComponent(typeof(Animator))]
 public class Crowbar : MonoBehaviour
 {
+    public UnityEvent hit;
+
     [SerializeField] int meleDamage = 10;
     [SerializeField] float radius = 0.5f;
     [SerializeField] GameObject _model;
@@ -36,6 +39,7 @@ public class Crowbar : MonoBehaviour
         if (settings != null && ItemType == settings.type)
         {
             _animator.Play("Hit");
+            hit?.Invoke();
             Attack();
         }
     }

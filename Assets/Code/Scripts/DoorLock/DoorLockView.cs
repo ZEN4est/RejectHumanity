@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using Zenject;
 
@@ -7,6 +8,9 @@ public class DoorLockView : MonoBehaviour
 {
     [SerializeField] private GameObject _canvas, _camera;
     [SerializeField] private Image _red, _green;
+
+    public UnityEvent failedOpenDoor, successOpenDoor;
+
 
     [Inject] private DoorLockService _doorLockService;
 
@@ -35,10 +39,12 @@ public class DoorLockView : MonoBehaviour
         if (_typedNumber == _doorLockService.Secret)
         {
             _green.enabled = true;
+            successOpenDoor?.Invoke();
             _doorLockService.UnlockDoor();
         }
         else
         {
+            failedOpenDoor?.Invoke();
             _red.enabled = true;
         }
 

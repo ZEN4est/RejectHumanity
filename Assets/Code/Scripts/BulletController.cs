@@ -1,8 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BulletController : MonoBehaviour
 {
+    public UnityEvent explosion;
+
     [SerializeField] GameObject _explosion;
     [SerializeField] int _shootDamage = 10;
     [SerializeField] Rigidbody rb;
@@ -49,7 +52,8 @@ public class BulletController : MonoBehaviour
             other.transform.GetComponent<Enemy>()?.dealDamage(_shootDamage);
             GetComponent<Collider>().enabled = false;
         }
-        if(other.transform.CompareTag("Player")) {
+        if (other.transform.CompareTag("Player"))
+        {
             FindAnyObjectByType<PlayerMovement>()?.dealDamage(_shootDamage);
             GetComponent<Collider>().enabled = false;
         }
@@ -57,6 +61,7 @@ public class BulletController : MonoBehaviour
         if (_isExplosion == false)
         {
             StartCoroutine(Explode());
+            explosion?.Invoke();
             _isExplosion = true;
         }
     }

@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PickUpController : MonoBehaviour
 {
+    public UnityEvent pickUp;
+
     public Transform hands;
     public float pickupDistance;
 
@@ -47,6 +50,8 @@ public class PickUpController : MonoBehaviour
                     attachedObject.GetComponent<Collider>().isTrigger = true;
                 Material m = attachedObject.GetComponent<MeshRenderer>().materials[0];
                 m.color = new Color(m.color.r, m.color.g, m.color.b, 0.7f);
+
+                pickUp?.Invoke();
             }
         }
     }
