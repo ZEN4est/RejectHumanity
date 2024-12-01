@@ -5,17 +5,18 @@ public class DoorLockService
 {
     public event Action Show;
     public event Action Hide;
-    public event Action DoorUnlocked;
+    public event Action<Guid> DoorUnlocked;
 
-    private string _secret = null;
-    public string Secret => _secret;
+    public string Secret { get; private set; }
+    public Guid? DoorId { get; private set; }
 
-    public void ShowDoorLock(string secret)
+    public void ShowDoorLock(Guid doorId, string secret)
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
 
-        _secret = secret;
+        Secret = secret;
+        DoorId = doorId;
         Show?.Invoke();
     }
 
@@ -24,12 +25,13 @@ public class DoorLockService
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        _secret = null;
+        Secret = null;
+        DoorId = null;
         Hide?.Invoke();
     }
 
     public void UnlockDoor()
     {
-        DoorUnlocked?.Invoke();
+        DoorUnlocked?.Invoke(DoorId.Value);
     }
 }
