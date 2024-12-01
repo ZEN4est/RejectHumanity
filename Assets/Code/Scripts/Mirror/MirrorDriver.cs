@@ -20,18 +20,18 @@ public class MirrorDriver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) {
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, 0.3f, Vector3.up);
-            var playerHit = hits.FirstOrDefault(x => x.collider.GetComponent<PlayerMovement>() != null);
-            if (playerHit.collider != null)
-            {
-                index ++;
-                if(index >= turnNumbers) {
-                    index = 0;
-                }
-                mirror.transform.rotation = Quaternion.Euler(0, offset + index * 360 / turnNumbers, 0);
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.E)) {
+        //     RaycastHit[] hits = Physics.SphereCastAll(transform.position, 0.3f, Vector3.up);
+        //     var playerHit = hits.FirstOrDefault(x => x.collider.GetComponent<PlayerMovement>() != null);
+        //     if (playerHit.collider != null)
+        //     {
+        //         index ++;
+        //         if(index >= turnNumbers) {
+        //             index = 0;
+        //         }
+        //         mirror.transform.rotation = Quaternion.Euler(0, offset + index * 360 / turnNumbers, 0);
+        //     }
+        // }
     }
 
 }
