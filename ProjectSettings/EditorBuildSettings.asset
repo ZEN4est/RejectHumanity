@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/RoomMapOld.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/MainMenu UI.unity
+    guid: 36b00a88711d54146a753539d1fc008d
+  - enabled: 1
+    path: Assets/Scenes/Settings UI.unity
+    guid: f1fe69042f5d86946ba3032841940d40
+  - enabled: 1
+    path: Assets/Scenes/Player UI.unity
+    guid: 48a5a7ff7c2323143878ba1427875c3a
+  - enabled: 1
+    path: Assets/Scenes/RoomMap.unity
+    guid: d09730e483667ce4f8a93c427f5829b6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

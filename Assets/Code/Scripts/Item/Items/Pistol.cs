@@ -27,21 +27,15 @@ public class Pistol : MonoBehaviour
     private void OnActiveItem(KeyCode code, ItemSettings settings)
     {
         if (settings != null && settings.type == ItemType)
-        {
             _model.SetActive(true);
-            _animator.Play("Show");
-        }
         else
-        {
-            _animator.Play("Hide");
-        }
+            _model.SetActive(false);
     }
 
     private void OnUseItem(KeyCode code, ItemSettings settings)
     {
         if (settings != null && ItemType == settings.type)
         {
-            Instantiate(_bullet, transform.parent.position + transform.parent.forward, transform.rotation);
             BulletController.Create(_bullet, transform.parent.position, transform.parent.rotation, transform.parent.gameObject, 20);
             _animator.Play("Shoot");
             shot?.Invoke();

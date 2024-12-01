@@ -1,9 +1,6 @@
 using System.Collections;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Rendering.Universal.Internal;
-using Zenject.SpaceFighter;
 
 public class Enemy : MonoBehaviour
 {
@@ -17,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     private bool active = false;
 
-        [Space(10)]
+    [Space(10)]
     [SerializeField] private float minSpeed = 0.5f;
     [SerializeField] private float maxSpeed = 1.5f;
     [SerializeField] private float shootMinCoolDown = 3f;
@@ -33,10 +30,12 @@ public class Enemy : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        if(navMeshAgent is null) {
+        if (navMeshAgent is null)
+        {
             Debug.LogError("Enemy should have navMeshAgent");
         }
-        if(animator is null) {
+        if (animator is null)
+        {
             Debug.LogError("Enemy should have animator");
         }
         pm = FindAnyObjectByType<PlayerMovement>();
@@ -45,60 +44,73 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(active) {
+        if (active)
+        {
             followCooldown = followCooldown <= 0 ? 0 : followCooldown - Time.deltaTime;
             shootCooldown = shootCooldown <= 0 ? 0 : shootCooldown - Time.deltaTime;
-            if(followCooldown == 0) {
+            if (followCooldown == 0)
+            {
                 navMeshAgent.SetDestination(pm.transform.position);
             }
             tryShoot();
         }
     }
 
-    public void goTo(Vector3 pos) {
-        if(navMeshAgent) {
+    public void goTo(Vector3 pos)
+    {
+        if (navMeshAgent)
+        {
             navMeshAgent?.SetDestination(pos);
         }
     }
 
-    public void dealDamage(int damage) {
+    public void dealDamage(int damage)
+    {
         health -= damage;
-        if(health <= 0) {
+        if (health <= 0)
+        {
             StartCoroutine(die());
         }
     }
 
-    private void tryShoot() {
-        if(shootCooldown <= 0 && followCooldown <= 0) {
+    private void tryShoot()
+    {
+        if (shootCooldown <= 0 && followCooldown <= 0)
+        {
             PlayerMovement pm = FindAnyObjectByType<PlayerMovement>();
-            Ray ray = new Ray(transform.position+new Vector3(0,upOffset,0), pm.transform.position - transform.position - new Vector3(0, upOffset, 0));
+            Ray ray = new Ray(transform.position + new Vector3(0, upOffset, 0), pm.transform.position - transform.position - new Vector3(0, upOffset, 0));
             RaycastHit hit;
-            Debug.DrawRay(transform.position+new Vector3(0, upOffset, 0), pm.transform.position - transform.position - new Vector3(0, upOffset, 0));
-            if(Physics.Raycast(ray, out hit)) {
-                if(LayerMask.LayerToName(hit.collider.gameObject.layer) == "Player") {
+            Debug.DrawRay(transform.position + new Vector3(0, upOffset, 0), pm.transform.position - transform.position - new Vector3(0, upOffset, 0));
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (LayerMask.LayerToName(hit.collider.gameObject.layer) == "Player")
+                {
                     StartCoroutine(shoot(ray.direction));
                 }
             }
         }
     }
 
-    private IEnumerator shoot(Vector3 dir) {
+    private IEnumerator shoot(Vector3 dir)
+    {
         shootCooldown = Random.Range(shootMinCoolDown, shootMaxCoolDown);
         animator.SetTrigger("Attack");
         followCooldown = 2;
         goTo(transform.position);
         yield return new WaitForSeconds(2f);
-        BulletController.Create(_bullet, transform.position+new Vector3(0, upOffset, 0), Quaternion.LookRotation(dir), gameObject, 10);
+        BulletController.Create(_bullet, transform.position + new Vector3(0, upOffset, 0), Quaternion.LookRotation(dir), gameObject, 10);
     }
 
-    private IEnumerator die() {
+    private IEnumerator die()
+    {
         animator.SetTrigger("Die");
         followCooldown = 5;
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 
-    public void Activate() {
+    public void Activate()
+    {
         active = true;
     }
 }
