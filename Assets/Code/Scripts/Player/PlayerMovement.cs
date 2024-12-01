@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private float rotationX = 0;
     private float rotationY = 0;
 
+    [SerializeField] private int health = 100;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -72,5 +74,12 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionExit(Collision col)
     {
         isGrounded = false;
+    }
+
+    public void dealDamage(int damage) {
+        health -= damage;
+        if(health <= 0) {
+            Debug.Log("You lost!");
+        }
     }
 }
