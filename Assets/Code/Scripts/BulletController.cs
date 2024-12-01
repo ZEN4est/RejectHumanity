@@ -6,13 +6,14 @@ public class BulletController : MonoBehaviour
     [SerializeField] GameObject _explosion;
     [SerializeField] int _shootDamage = 10;
     [SerializeField] Rigidbody rb;
+    [SerializeField] private float speed;
     private bool _isExplosion = false;
     private int _distanceToDeath = 30;
     private Vector3 _startPos;
 
     private void Start()
     {
-        rb.AddForce(transform.forward * 10, ForceMode.Impulse);
+        rb.AddForce(transform.forward * speed, ForceMode.Impulse);
         transform.Rotate(Vector3.up, 90);
         _startPos = transform.position;
     }
@@ -24,25 +25,33 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.transform.CompareTag("Enemy"))
-        {
-            other.transform.GetComponent<Enemy>()?.dealDamage(_shootDamage);
-        }
+    // private void OnCollisionEnter(Collision other)
+    // {
+    //     if (other.transform.CompareTag("Enemy"))
+    //     {
+    //         other.transform.GetComponent<Enemy>()?.dealDamage(_shootDamage);
+    //     }
+    //     if(other.transform.CompareTag("Player")) {
+    //         FindAnyObjectByType<PlayerMovement>()?.dealDamage(_shootDamage);
+    //     }
 
-        if (_isExplosion == false)
-        {
-            StartCoroutine(Explode());
-            _isExplosion = true;
-        }
-    }
+    //     if (_isExplosion == false)
+    //     {
+    //         StartCoroutine(Explode());
+    //         _isExplosion = true;
+    //     }
+    // }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Enemy"))
         {
             other.transform.GetComponent<Enemy>()?.dealDamage(_shootDamage);
+            GetComponent<Collider>().enabled = false;
+        }
+        if(other.transform.CompareTag("Player")) {
+            FindAnyObjectByType<PlayerMovement>()?.dealDamage(_shootDamage);
+            GetComponent<Collider>().enabled = false;
         }
 
         if (_isExplosion == false)
