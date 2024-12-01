@@ -160,7 +160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &549480257339071755
 Transform:
   m_ObjectHideFlags: 0
@@ -292,11 +292,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8477873396503346042}
-  - component: {fileID: 4026176304870688945}
-  - component: {fileID: 5199287638713056730}
   - component: {fileID: 4563491084263652781}
   - component: {fileID: 127539401317059943}
-  - component: {fileID: 8785198206478586789}
+  - component: {fileID: 6485493202209854616}
   - component: {fileID: 2544735678458995313}
   - component: {fileID: 771418278218859462}
   - component: {fileID: 3588265960840491496}
@@ -317,7 +315,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.01, y: 1.19, z: 0.96}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5121258442353451223}
@@ -585,7 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hands: {fileID: 6436339623765729868}
-  pickupDistance: 10
+  pickupDistance: 50
 --- !u!114 &3588265960840491496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,7 +783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0a3e834155c336d4dacc40ea5cf139e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0a3e834155c336d4dacc40ea5cf139e3, type: 3}
       propertyPath: m_LocalPosition.z

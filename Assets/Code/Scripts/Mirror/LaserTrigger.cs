@@ -1,22 +1,17 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 public class LaserTrigger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private DoorController _doorController;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Inject] private DoorLockService _doorLockService;
 
     public event Action Triggered;
-    public void Trigger() {
-        Triggered.Invoke();
+    public void Trigger()
+    {
+        _doorLockService.UnlockDoor(_doorController.Id);
+        Triggered?.Invoke();
     }
 }

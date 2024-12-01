@@ -30,7 +30,7 @@ public class PickUpController : MonoBehaviour
 
     private void TryPickUpObject()
     {
-        if (Physics.Raycast(transform.position, hands.forward, out RaycastHit hit, pickupDistance))
+        if (Physics.Raycast(hands.position, hands.forward, out RaycastHit hit, pickupDistance))
         {
             if (hit.transform.CompareTag("Pickable"))
             {
@@ -45,8 +45,8 @@ public class PickUpController : MonoBehaviour
 
                 if (attachedObject.GetComponent<Collider>())
                     attachedObject.GetComponent<Collider>().isTrigger = true;
-                    Material m = attachedObject.GetComponent<MeshRenderer>().materials[0];
-                    m.color = new Color(m.color.r, m.color.g, m.color.b, 0.7f);
+                Material m = attachedObject.GetComponent<MeshRenderer>().materials[0];
+                m.color = new Color(m.color.r, m.color.g, m.color.b, 0.7f);
             }
         }
     }
@@ -60,8 +60,8 @@ public class PickUpController : MonoBehaviour
 
         if (attachedObject.GetComponent<Collider>())
             attachedObject.GetComponent<Collider>().isTrigger = false;
-            Material m = attachedObject.GetComponent<MeshRenderer>().materials[0];
-            m.color = new Color(m.color.r, m.color.g, m.color.b, 1f);
+        Material m = attachedObject.GetComponent<MeshRenderer>().materials[0];
+        m.color = new Color(m.color.r, m.color.g, m.color.b, 1f);
 
         attachedObject = null;
     }

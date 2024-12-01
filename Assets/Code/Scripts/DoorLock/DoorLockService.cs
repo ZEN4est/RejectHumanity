@@ -34,4 +34,9 @@ public class DoorLockService
     {
         DoorUnlocked?.Invoke(DoorId.Value);
     }
+
+    public void UnlockDoor(Guid doorId)
+    {
+        DoorUnlocked?.Invoke(doorId);
+    }
 }
