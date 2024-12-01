@@ -3,7 +3,22 @@ guid: 53ca72cff86da6f43b840abb08cc24fd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M16 A4 Carrying Handle
+    second: {fileID: 2100000, guid: 5fd932b6894f69f428e7014b47431d2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M16 A4 Magazine And Cartridge
+    second: {fileID: 2100000, guid: bde12c4de78cdd442afd88e153744113, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M16 A4 Main Body
+    second: {fileID: 2100000, guid: d6010938828f4da4c860e6af46c82fb2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +103,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
