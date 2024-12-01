@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
+using Mono.Cecil.Cil;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    public static event Action Death;
+
     NavMeshAgent navMeshAgent;
 
     [SerializeField] int health = 50;
@@ -93,7 +97,7 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator shoot(Vector3 dir)
     {
-        shootCooldown = Random.Range(shootMinCoolDown, shootMaxCoolDown);
+        shootCooldown = UnityEngine.Random.Range(shootMinCoolDown, shootMaxCoolDown);
         animator.SetTrigger("Attack");
         followCooldown = 2;
         goTo(transform.position);
@@ -103,10 +107,16 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator die()
     {
+
         animator.SetTrigger("Die");
         followCooldown = 5;
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Death?.Invoke();
     }
 
     public void Activate()

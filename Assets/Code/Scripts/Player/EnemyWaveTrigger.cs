@@ -16,18 +16,20 @@ public class EnemyWaveTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void OnTriggerEnter() {
-        if (!isPlaying) { 
-        FindAnyObjectByType<PlayerMovement>()?.GetComponent<AudioSource>()?.Stop();
-        audioSource.Play();
-        audioSource.volume = 0.5f;
+    void OnTriggerEnter()
+    {
+        if (!isPlaying)
+        {
+            FindAnyObjectByType<PlayerMovement>()?.GetComponent<AudioSource>()?.Stop();
+            audioSource.Play();
+            audioSource.volume = 0.5f;
         }
         isPlaying = true;
         Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
         enemies.ToList().ForEach(x => x.Activate());
-        
+
     }
 }
