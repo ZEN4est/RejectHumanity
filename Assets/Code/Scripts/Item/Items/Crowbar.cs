@@ -24,14 +24,9 @@ public class Crowbar : MonoBehaviour
     private void OnActiveItem(KeyCode code, ItemSettings settings)
     {
         if (settings != null && settings.type == ItemType)
-        {
             _model.SetActive(true);
-            _animator.Play("Show");
-        }
         else
-        {
-            _animator.Play("Hide");
-        }
+            _model.SetActive(false);
     }
 
     private void OnUseItem(KeyCode code, ItemSettings settings)
